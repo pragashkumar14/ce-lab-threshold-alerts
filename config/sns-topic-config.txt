@@ -1,0 +1,5 @@
+Topic Name: CloudWatchAlerts
+Topic ARN: arn:aws:sns:eu-west-3:033216807267:CloudWatchAlerts
+Type: Standard
+Region: eu-west-3
+Subscription: pragash_m@hotmail.co.uk (Email, Confirmed)

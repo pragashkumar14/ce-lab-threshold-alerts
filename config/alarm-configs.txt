@@ -1,0 +1,21 @@
+Alarm: HighCPUUtilization
+  Metric: CPUUtilization | Namespace: AWS/EC2 | Threshold: >80% | Period: 300s | EvalPeriods: 2
+
+Alarm: HighMemoryUtilization
+  Metric: mem_used_percent | Namespace: CWAgent | Threshold: >85% | Period: 300s | EvalPeriods: 2
+
+Alarm: LowDiskSpace
+  Metric: disk_used_percent | Namespace: CWAgent | Threshold: >80% | Period: 300s | EvalPeriods: 1
+  Dimensions: InstanceId, path=/, device=nvme0n1p1, fstype=ext4
+
+Alarm: HighErrorRate
+  Metric: ErrorCount | Namespace: Application | Threshold: >10 per 5min | Period: 300s | EvalPeriods: 1
+  Source: Metric filter on log group /ce-lab/app-logging
+
+Alarm: CPU-Warning
+  Metric: CPUUtilization | Namespace: AWS/EC2 | Threshold: >70% | Period: 300s | EvalPeriods: 2
+
+Alarm: CPU-Critical
+  Metric: CPUUtilization | Namespace: AWS/EC2 | Threshold: >90% | Period: 300s | EvalPeriods: 1
+
+All alarms → SNS Topic: arn:aws:sns:eu-west-3:033216807267:CloudWatchAlerts
